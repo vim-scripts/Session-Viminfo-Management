@@ -1,0 +1,31 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=5005
+
+The plug-in improves upon Vim's built-in :mksession and :wviminfo commands. 
+It provide great convinience to save and load your Vim session and viminfo files automatically. 
+
+Typically, you can save your Vim session and viminfo files in one command and load them efficiently. 
+Even better, it can automatically load/save vim session and viminfo files when entering vim and leaving vim environment. 
+That are very useful if you want Vim to quickly swith between different projects, automatically loading the files you were last working on in that project, and enable you to continue where you left off. 
+
+Terminology and Default Values:
+Workspace files: I will shortly call vim session and viminfo files as "Workspace files" in this manual. workspace: All prompt messages in Vim prefixed with "workspace:" are from this Session-Viminfo-Management plugin. 
+Default Values:
+    * Default name for workspace files is: workspace.session workspace.viminfo
+    * Default saving path: vim current path (Type Vim Ex command getcwd() to get it)
+
+Functionality:
+* This plugin provides automation ability when launching Vim and leaving Vim.
+* It provides two Ex commands: Savews, Loadws.
+* There is one global option you can use: wsOverwrite.
+
+Limitation and Known issues:
+* Windows is not a target of this plugin. I think you would experience some problmes if you want to use this plugin on Windows Vim.
+* There is compatible problem when work with autochdir option. Recommend to remove autochdir option from your ~/.vimrc. For my experiences, if enable autochdir option in Vim, users will mess up themselves when trying to provide relative pathes of Vim session and viminfo files. It seems it can't have impact if you provide absolute path for Vim session and viminfo files.
+* There is a little compatible problem in some tty console. In some tty console, when launching Vim and this plugin prompt a workspace list for your choice, after you input your choice, it will echo all message one time. Anyway, the function still works.
+* You'd better not to run :Loadws in same Vim twice. If you once run Loadws to load your workspace files, then run Loadws to reload them again in the same Vim, it will not close all openning windows and tabs. In other words, you may see double windows have been opened for the same file.
+
+License:
+This software is licensed under the MIT License. Copyright 2014 Brant Chen (Primary: brantchen2008@gmail.com and secondary: xkdcc@163.com).
+
+For more details, please access: https://github.com/xkdcc/Session-Viminfo-Management
+Or :help workspaceIntro.
